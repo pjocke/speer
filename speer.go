@@ -2,10 +2,10 @@ package main
 
 import (
         "fmt"
-		"strings"
-		"log"
-		"os"
-		"io/ioutil"
+	"strings"
+	"log"
+	"os"
+	"io/ioutil"
         "github.com/nlopes/slack"
 )
 
@@ -18,7 +18,7 @@ func main() {
 	cwd, _ := os.Getwd()
 	key, err := ioutil.ReadFile(cwd + "/api.key")
 	if err != nil {
-		log.Fatal("Missing API key.")
+		log.Fatalf("Missing API key: %s\n", cwd + "/api.key")
 	}
 
 	api := slack.New(strings.TrimSpace(string(key)))
